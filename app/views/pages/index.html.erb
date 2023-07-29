@@ -1,0 +1,12 @@
+<div>
+  <%= form_with(url: "/", local: true, :method => "get") do |form|%>
+    <%= form.label "User Id" %>
+    <%= form.text_field :user_id %>
+    <%= form.submit "Get Photos" %>
+  <% end %>
+</div>
+<div>
+  <% @photos.each do |photo| %>
+    <%= link_to(image_tag(Flickr.url_q(photo)),  Flickr.url_photopage(photo)) %>
+  <% end %>
+</div>
